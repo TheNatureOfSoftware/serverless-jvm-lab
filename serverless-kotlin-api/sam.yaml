@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An Amazon SNS trigger that logs the message pushed to the SNS topic.
+Resources:
+  snsmessage:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: se.tnos.serverlesslab.hello.StreamLambdaHandler
+      CodeUri: ./target/serverless-kotlin-api-0.0.1-SNAPSHOT.jar
+      Runtime: java8
+      Timeout: 60
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
