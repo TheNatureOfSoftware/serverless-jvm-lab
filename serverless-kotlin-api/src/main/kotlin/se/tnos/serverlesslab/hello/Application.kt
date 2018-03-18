@@ -1,21 +1,20 @@
 package se.tnos.serverlesslab.hello
 
+import com.amazonaws.serverless.exceptions.ContainerInitializationException
+import com.amazonaws.serverless.proxy.model.AwsProxyRequest
+import com.amazonaws.serverless.proxy.model.AwsProxyResponse
+import com.amazonaws.serverless.proxy.spring.SpringBootLambdaContainerHandler
+import com.amazonaws.services.lambda.runtime.Context
+import com.amazonaws.services.lambda.runtime.RequestStreamHandler
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.servlet.config.annotation.EnableWebMvc
 import java.io.IOException
-import com.amazonaws.serverless.exceptions.ContainerInitializationException
-import com.amazonaws.serverless.proxy.spring.SpringBootLambdaContainerHandler
-import com.amazonaws.serverless.proxy.model.AwsProxyResponse
-import com.amazonaws.serverless.proxy.model.AwsProxyRequest
-import com.amazonaws.services.lambda.runtime.Context
-import com.amazonaws.services.lambda.runtime.RequestStreamHandler
-import org.slf4j.LoggerFactory
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import java.io.InputStream
 import java.io.OutputStream
 
